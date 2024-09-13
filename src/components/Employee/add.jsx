@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./styles.css";
 
-const AddEmployee = ({ onAdd }) => {
+const AddEmployee = ({ onAdd, onEdit, editingEmployee }) => {
   const [employee, setEmployee] = useState({
     firstName: "",
     lastName: "",
@@ -11,6 +11,21 @@ const AddEmployee = ({ onAdd }) => {
   });
 
   const [error, setError] = useState("");
+
+  // Preenche o formulário com os dados do funcionário a ser editado
+  useEffect(() => {
+    if (editingEmployee) {
+      setEmployee(editingEmployee);
+    } else {
+      setEmployee({
+        firstName: "",
+        lastName: "",
+        email: "",
+        salary: "",
+        date: "",
+      });
+    }
+  }, [editingEmployee]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -31,21 +46,38 @@ const AddEmployee = ({ onAdd }) => {
       return;
     }
 
-    if (typeof onAdd === "function") {
-      onAdd({ ...employee, id: Math.random().toString(36).substr(2, 9) });
-
-      setEmployee({
-        firstName: "",
-        lastName: "",
-        email: "",
-        salary: "",
-        date: "",
-      });
-
-      setError("");
+    if (editingEmployee) {
+      // Se houver um funcionário sendo editado, chama onEdit
+      if (typeof onEdit === "function") {
+        onEdit(employee);
+        setEmployee({
+          firstName: "",
+          lastName: "",
+          email: "",
+          salary: "",
+          date: "",
+        });
+        setError("");
+      } else {
+        console.error("onEdit is not a function");
+        setError("Erro ao editar funcionário. Por favor, tente novamente.");
+      }
     } else {
-      console.error("onAdd is not a function");
-      setError("Erro ao adicionar funcionário. Por favor, tente novamente.");
+      // Se não houver um funcionário sendo editado, chama onAdd
+      if (typeof onAdd === "function") {
+        onAdd({ ...employee, id: Math.random().toString(36).substr(2, 9) });
+        setEmployee({
+          firstName: "",
+          lastName: "",
+          email: "",
+          salary: "",
+          date: "",
+        });
+        setError("");
+      } else {
+        console.error("onAdd is not a function");
+        setError("Erro ao adicionar funcionário. Por favor, tente novamente.");
+      }
     }
   };
 
@@ -85,7 +117,9 @@ const AddEmployee = ({ onAdd }) => {
         value={employee.date}
         onChange={handleChange}
       />
-      <button type="submit">Add Employee</button>
+      <button type="submit">
+        {editingEmployee ? "Save Changes" : "Add Employee"}
+      </button>
       {error && <p className="error-message">{error}</p>}
     </form>
   );

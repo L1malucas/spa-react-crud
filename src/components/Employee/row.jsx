@@ -1,7 +1,6 @@
-import React from 'react';
-import "./styles.css";
+import React from "react";
 
-const EmployeeRow = ({ index, employee }) => {
+const EmployeeRow = ({ index, employee, onDelete, onEdit }) => {
   return (
     <tr>
       <td>{index}</td>
@@ -11,8 +10,8 @@ const EmployeeRow = ({ index, employee }) => {
       <td>${employee.salary.toLocaleString()}</td>
       <td>{employee.date}</td>
       <td>
-        <button>Edit</button>
-        <button>Delete</button>
+        <button onClick={() => onEdit(employee)}>Edit</button>
+        <button onClick={() => onDelete(employee)}>Delete</button>
       </td>
     </tr>
   );
