@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/spa-react-crud/static/css/main.4632da6f.css",
-    "main.js": "/spa-react-crud/static/js/main.a6f53299.js",
-    "static/js/570.dcc71555.chunk.js": "/spa-react-crud/static/js/570.dcc71555.chunk.js",
+    "main.js": "/spa-react-crud/static/js/main.2f195d43.js",
+    "static/js/570.9caf217f.chunk.js": "/spa-react-crud/static/js/570.9caf217f.chunk.js",
     "static/js/164.fa754504.chunk.js": "/spa-react-crud/static/js/164.fa754504.chunk.js",
-    "static/js/348.a5ef90b4.chunk.js": "/spa-react-crud/static/js/348.a5ef90b4.chunk.js",
+    "static/js/348.d2edcc8a.chunk.js": "/spa-react-crud/static/js/348.d2edcc8a.chunk.js",
     "static/media/error.gif": "/spa-react-crud/static/media/error.42292aa12b6bc303ce99.gif",
     "index.html": "/spa-react-crud/index.html",
     "main.4632da6f.css.map": "/spa-react-crud/static/css/main.4632da6f.css.map",
-    "main.a6f53299.js.map": "/spa-react-crud/static/js/main.a6f53299.js.map",
-    "570.dcc71555.chunk.js.map": "/spa-react-crud/static/js/570.dcc71555.chunk.js.map",
+    "main.2f195d43.js.map": "/spa-react-crud/static/js/main.2f195d43.js.map",
+    "570.9caf217f.chunk.js.map": "/spa-react-crud/static/js/570.9caf217f.chunk.js.map",
     "164.fa754504.chunk.js.map": "/spa-react-crud/static/js/164.fa754504.chunk.js.map",
-    "348.a5ef90b4.chunk.js.map": "/spa-react-crud/static/js/348.a5ef90b4.chunk.js.map"
+    "348.d2edcc8a.chunk.js.map": "/spa-react-crud/static/js/348.d2edcc8a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4632da6f.css",
-    "static/js/main.a6f53299.js"
+    "static/js/main.2f195d43.js"
   ]
 }
