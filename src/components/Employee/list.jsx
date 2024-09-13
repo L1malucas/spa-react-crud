@@ -72,12 +72,12 @@ const EmployeeList = () => {
         <thead>
           <tr>
             <th>#</th>
-            <th>First Name</th>
-            <th>Last Name</th>
+            <th>Primeiro Nome</th>
+            <th>Sobrenome</th>
             <th>Email</th>
-            <th>Salary</th>
-            <th>Date</th>
-            <th>Actions</th>
+            <th>Salário</th>
+            <th>Data</th>
+            <th>Ações</th>
           </tr>
         </thead>
         <tbody>

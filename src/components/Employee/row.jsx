@@ -7,11 +7,11 @@ const EmployeeRow = ({ index, employee, onDelete, onEdit }) => {
       <td>{employee.firstName}</td>
       <td>{employee.lastName}</td>
       <td>{employee.email}</td>
-      <td>${employee.salary.toLocaleString()}</td>
+      <td>R${employee.salary.toLocaleString()}</td>
       <td>{employee.date}</td>
       <td>
-        <button onClick={() => onEdit(employee)}>Edit</button>
-        <button onClick={() => onDelete(employee)}>Delete</button>
+        <button onClick={() => onEdit(employee)}>Editar</button>
+        <button onClick={() => onDelete(employee)}>Deletar</button>
       </td>
     </tr>
   );
