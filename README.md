@@ -1,70 +1,115 @@
-# Getting Started with Create React App
+# README - Avaliação Técnica
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Descrição do Desafio
 
-## Available Scripts
+Este projeto é uma aplicação desenvolvida em C# com .NET Core 5 ou superior. O objetivo é implementar uma solução de cadastro de clientes, obedecendo aos princípios do DDD (Domain Driven Design) e, como diferencial, aplicar o padrão CQRS (Command Query Responsibility Segregation) sem Event Sourcing.
 
-In the project directory, you can run:
+O projeto conta com:
 
-### `npm start`
+- Back-end utilizando Web API, seguindo o padrão RESTful.
+- Front-end implementado como uma Single Page Application (SPA) com **VueJs**, **React** ou **Angular**.
+- Não há foco em layout ou boas práticas visuais de HTML/CSS.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Funcionalidades
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+A aplicação permite realizar o CRUD (Create, Read, Update, Delete) de clientes, com as seguintes informações:
 
-### `npm test`
+- **ID** (identificador único)
+- **Nome da Empresa**
+- **Porte da Empresa** (pequena, média ou grande)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Telas disponíveis:
 
-### `npm run build`
+1. **Listagem de Clientes**: exibe todos os clientes cadastrados.
+2. **Cadastro e Edição de Clientes**: permite incluir um novo cliente ou editar um já existente.
+3. **Remoção de Cliente**: disponibiliza a opção de excluir um cliente cadastrado.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Requisitos
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Camada de Apresentação:
+- Desenvolver uma API RESTful com C# e .NET Core 5 ou superior.
+- Front-end deve ser uma Single Page Application (SPA) usando **VueJs**, **React** ou **Angular**.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Camada de Domínio:
+- Seguir os princípios do DDD (Domain Driven Design) para separar as responsabilidades em camadas de **Presentation**, **Application** e **Domain**.
+- Aplicar o padrão **CQRS** para separar comandos de consultas, sem utilizar Event Sourcing.
 
-### `npm run eject`
+### Acesso a Dados:
+- Utilizar um banco de dados relacional como **Microsoft® SQL Server**, **PostgreSQL** ou **MySQL**.
+- Framework ORM: **Entity Framework** ou **NHibernate**.
+- Diferencial: Projeção de dados com banco **NoSQL** (MongoDB, DynamoDB ou Cassandra) na parte de consulta (CQRS).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Como Rodar o Projeto
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Requisitos:
+- .NET Core 5 ou superior
+- Node.js para rodar o front-end (se aplicável)
+- SQL Server, PostgreSQL ou MySQL para o banco de dados relacional
+- (Opcional) MongoDB para a projeção de dados NoSQL
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Passos:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. **Clonar o Repositório**
+   ```bash
+   git clone https://github.com/seu-usuario/nome-do-repositorio.git
+   cd nome-do-repositorio
+   ```
 
-## Learn More
+2. **Configurar o Banco de Dados Relacional**
+   - Configure a string de conexão no arquivo `appsettings.json`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. **Rodar as Migrações do Banco de Dados**
+   ```bash
+   dotnet ef database update
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+4. **Subir o Back-end**
+   ```bash
+   dotnet run
+   ```
 
-### Code Splitting
+5. **Subir o Front-end**
+   Navegue até a pasta do front-end e rode os comandos adequados, dependendo do framework escolhido (VueJs, React ou Angular).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+   Exemplo com **VueJs**:
+   ```bash
+   npm install
+   npm run serve
+   ```
 
-### Analyzing the Bundle Size
+### Testes
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Para rodar os testes unitários:
 
-### Making a Progressive Web App
+```bash
+dotnet test
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Estrutura do Projeto
 
-### Advanced Configuration
+O projeto está organizado em camadas seguindo os princípios do DDD:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- **Presentation**: contém a interface do usuário e a Web API.
+- **Application**: contém a lógica de aplicação e comandos/consultas do CQRS.
+- **Domain**: contém as entidades de negócio e regras de domínio.
+- **Infrastructure**: contém a configuração de acesso aos dados e implementação de repositórios.
 
-### Deployment
+## Tecnologias Utilizadas
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- **Back-end**: C#, .NET Core 5, Entity Framework/NHibernate
+- **Front-end**: VueJs/React/Angular
+- **Banco de Dados Relacional**: Microsoft SQL Server, PostgreSQL ou MySQL
+- **NoSQL**: MongoDB, DynamoDB ou Cassandra (diferencial)
+- **Padrão Arquitetural**: RESTful, CQRS, DDD
 
-### `npm run build` fails to minify
+## Como Contribuir
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Faça um fork do projeto
+2. Crie uma branch para sua feature (`git checkout -b minha-feature`)
+3. Commit suas mudanças (`git commit -m 'Adiciona minha feature'`)
+4. Faça o push para a branch (`git push origin minha-feature`)
+5. Abra um Pull Request
+
+## Contato
+
+Para dúvidas, entre em contato pelo e-mail [seu-email@example.com].
